@@ -1,5 +1,6 @@
 import React from 'react';
-import { selectUser, logout } from '../../features/userSlice';
+// import { selectUser, logout } from '../../features/userSlice';
+import { userLogout, selectUser } from '../../ducks/user';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navbar, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -12,7 +13,7 @@ const Header = () => {
 
     const handleLogout = (e) => {
         e.preventDefault();
-        dispatch(logout())
+        dispatch(userLogout())
     }
 
     return (
@@ -22,7 +23,7 @@ const Header = () => {
                     Dashboard
                 </div>
                 <div>
-                    {user.username}
+                    {user}
                     <Button className='ms-3' onClick={handleLogout}>LogOut</Button>
                 </div>    
             </Navbar>

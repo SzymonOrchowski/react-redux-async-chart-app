@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { login } from "../../features/userSlice"
+// import { login } from "../../features/userSlice"
+import { userLogin } from '../../ducks/user';
 import { useDispatch } from 'react-redux';
 import users from '../../data/usersData.json'
 import { Form, Button, Modal } from 'react-bootstrap'
@@ -28,9 +29,13 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (validateUser(username, password)) {
-            dispatch(login({
-                username: username,
-                password: password,
+            // dispatch(login({
+            //     username: username,
+            //     password: password,
+            //     loggedIn: true
+            // }))
+            dispatch(userLogin({
+                user: username,
                 loggedIn: true
             }))
         } else {

@@ -6,7 +6,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import chart1Reducer from "../ducks/chart1";
 import chart2Reducer from "../ducks/chart2";
 import chart3Reducer from "../ducks/chart3";
-import userReducer from "../features/userSlice"
+import userReducer from "../ducks/user"
 
 const reducer = combineReducers({
     user: userReducer,
