@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const LoginPage = () => {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleUsernameChange = (e) => {
+        setUsername(e.target.value)
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const {username, password } = e.target.elements
-        console.log(username.value, password.value)
+        console.log(username, password)
     }
 
     return (
@@ -15,13 +24,13 @@ const LoginPage = () => {
                     <div >
                         <span>
                             <label htmlFor="username">Username:</label>
-                            <input type="text" id="username" name="username"></input>
+                            <input type="text" id="username" name="username" onChange={handleUsernameChange}></input>
                         </span>
                     </div>
                     <div>
                         <span>
                             <label htmlFor="password">Password:</label>
-                            <input type="text" id="password" name="password"></input>
+                            <input type="text" id="password" name="password" onChange={handlePasswordChange}></input>
                         </span>
                     </div>
                     <div>
