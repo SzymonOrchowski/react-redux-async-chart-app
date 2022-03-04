@@ -7,11 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const Charts = () => {
     return (
         <div className='p-4'>
-            <div className='d-flex justify-content-around mt-5 mb-4'>
+            <div className='mt-5 mb-3'>
                 <Chart1 />
-                <Chart2 />
             </div>
-            <div>
+            <div className='d-flex justify-content-between mb-4'>
+                <Chart2 />
                 <Chart3 />
             </div>
         </div>

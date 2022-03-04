@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.placeholder {
+  background-color: white;
+}
+
 .loginPage {
   position: absolute;
   background-color: #002069;

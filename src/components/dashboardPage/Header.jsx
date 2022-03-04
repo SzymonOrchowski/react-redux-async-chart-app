@@ -1,5 +1,4 @@
 import React from 'react';
-// import { selectUser, logout } from '../../features/userSlice';
 import { userLogout, selectUser } from '../../ducks/user';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navbar, Button } from 'react-bootstrap'
