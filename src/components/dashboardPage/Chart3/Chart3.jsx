@@ -92,9 +92,12 @@ const Chart3 = () => {
             ?
                 <ChartViewer data={data} schema={schema}/>
             :
-                <Placeholder className='placeholder' style={{ width: '47%', height: '400px'}}>
-                  <Spinner animation='border'/>
-                </Placeholder>
+                <div className='loaderContainer' style={{ width: '47%', height: '400px'}}>
+                    <div>
+                        Loading data...<br/><br/>
+                        <Spinner animation='border'/>
+                    </div>
+                </div>
             }  
         </div>
     );

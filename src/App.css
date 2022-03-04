@@ -2,7 +2,8 @@
   text-align: center;
 }
 
-.placeholder {
+.loaderContainer {
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;

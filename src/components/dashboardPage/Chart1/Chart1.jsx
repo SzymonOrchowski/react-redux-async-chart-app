@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import FusionCharts from "fusioncharts";
 import TimeSeries from "fusioncharts/fusioncharts.timeseries";
 import ReactFC from "react-fusioncharts";
-import { Placeholder, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getData, getSchema } from "../../../ducks/chart1";
@@ -94,9 +94,12 @@ const Chart1 = () => {
             ?
                 <ChartViewer data={data} schema={schema}/>
             :
-                <Placeholder className='placeholder' style={{ width: '100%', height: '400px'}}>
-                    <Spinner animation='border'/>
-                </Placeholder>
+                <div className='loaderContainer' style={{ width: '100%', height: '400px'}}>
+                    <div>
+                        Loading data...<br/><br/>
+                        <Spinner animation='border'/>
+                    </div>
+                </div>
             }  
         </div>
     );
