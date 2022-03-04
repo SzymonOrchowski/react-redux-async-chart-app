@@ -4,22 +4,9 @@ import TimeSeries from "fusioncharts/fusioncharts.timeseries";
 import ReactFC from "react-fusioncharts";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../../../ducks/chart1";
-
-import IBMschema from "../../../data/ibm-data-schema.json"
-import IBMdata from "../../../data/ibm-data-data.json"
-
+import { getData, getSchema } from "../../../ducks/chart1";
 
 ReactFC.fcRoot(FusionCharts, TimeSeries);
-
-// const dataFetch = IBMdata
-const schemaFetch = IBMschema
-
-
-// const schemaFetch = [{
-//     "name": "Closing Price",
-//     "type": "number"
-// }]
 
 const dataSource = {
   chart: {},
@@ -64,7 +51,7 @@ class ChartViewer extends React.Component {
 
   onFetchData() {
       const data = this.props.data;
-      const schema = schemaFetch;
+      const schema = this.props.schema;
       const fusionTable = new FusionCharts.DataStore().createDataTable(
         data,
         schema
@@ -94,15 +81,17 @@ const Chart1 = () => {
 
     useEffect(()=>{
         dispatch(getData());
+        dispatch(getSchema());
     }, [dispatch])
 
     const data = useSelector((state) => state.chart1.data);
+    const schema = useSelector((state) => state.chart1.schema);
 
     return (
         <div>
             {data
             ?
-                <ChartViewer data={data}/>
+                <ChartViewer data={data} schema={schema}/>
             :
                 "loading"
             }  
