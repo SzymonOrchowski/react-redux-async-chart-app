@@ -1,4 +1,4 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
+import { combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { watcherSaga } from "../sagas/rootSaga";
 import { configureStore } from "@reduxjs/toolkit";
