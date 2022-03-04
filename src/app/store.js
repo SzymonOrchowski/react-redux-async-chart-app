@@ -15,8 +15,11 @@ const sagaMiddleware = createSagaMiddleware();
 
 const middleware = [sagaMiddleware];
 
-const store = createStore(reducer, {}, applyMiddleware(...middleware));
+const store2 = configureStore({
+    reducer,
+    middleware: [...middleware]
+})
 
 sagaMiddleware.run(watcherSaga);
 
-export default store
+export default store2

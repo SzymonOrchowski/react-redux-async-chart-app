@@ -12,7 +12,7 @@ import IBMdata from "../../../data/ibm-data-data.json"
 
 ReactFC.fcRoot(FusionCharts, TimeSeries);
 
-const dataFetch = IBMdata
+// const dataFetch = IBMdata
 const schemaFetch = IBMschema
 
 
