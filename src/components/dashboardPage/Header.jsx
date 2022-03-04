@@ -1,6 +1,9 @@
 import React from 'react';
 import { selectUser, logout } from '../../features/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import { Navbar, Button } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const Header = () => {
     const user = useSelector(selectUser);
@@ -14,17 +17,15 @@ const Header = () => {
 
     return (
         <div>
-            <div>
+            <Navbar id='navbar' fixed='top' className="d-flex justify-content-between px-4">
                 <div>
                     Dashboard
                 </div>
                 <div>
-                    Welcome {user.username}
-                </div>
-            </div>
-            <div>
-                <button onClick={handleLogout}>LogOut</button>
-            </div>   
+                    {user.username}
+                    <Button className='ms-3' onClick={handleLogout}>LogOut</Button>
+                </div>    
+            </Navbar>
         </div>
     );
 };
