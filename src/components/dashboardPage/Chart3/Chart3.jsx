@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import FusionCharts from "fusioncharts";
 import TimeSeries from "fusioncharts/fusioncharts.timeseries";
 import ReactFC from "react-fusioncharts";
-import { Placeholder } from "react-bootstrap";
+import { Placeholder, Spinner } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getData, getSchema } from "../../../ducks/chart3";
@@ -68,7 +68,7 @@ class ChartViewer extends React.Component {
         {this.state.timeseriesDs.dataSource.data ? (
           <ReactFC {...this.state.timeseriesDs} />
         ) : (
-          <Placeholder className='placeholder' style={{ width: '47%', height: '400px'}}/>
+          null
         )}
       </div>
     );
@@ -92,7 +92,9 @@ const Chart3 = () => {
             ?
                 <ChartViewer data={data} schema={schema}/>
             :
-                <Placeholder className='placeholder' bg="danger" style={{ width: '47%', height: '400px'}}/>
+                <Placeholder className='placeholder' style={{ width: '47%', height: '400px'}}>
+                  <Spinner animation='border'/>
+                </Placeholder>
             }  
         </div>
     );
