@@ -89,7 +89,7 @@ const Chart1 = () => {
 
     return (
         <div>
-            {data
+            {data && schema
             ?
                 <ChartViewer data={data} schema={schema}/>
             :
