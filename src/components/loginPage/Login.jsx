@@ -6,7 +6,11 @@ import users from '../../data/usersData.json'
 const validateUser = (username, password) => {
     const found = users.users.find(user => user.username === username)
     if (found) {
-        return true
+        if (found.password === password) {
+            return true
+        } else {
+            return false
+        }   
     } else {
         return false
     }
@@ -72,7 +76,7 @@ const LoginPage = () => {
                 error 
                 ? 
                     <div>
-                        <h3>Incorrect login data</h3>
+                        <h3>Wrong username or password</h3>
                     </div>
                 :
                     null

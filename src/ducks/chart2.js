@@ -31,7 +31,6 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET_CHART2_DATA:
         const { data } = action;
-        console.log(data)
         return { ...state, data };
     case SET_CHART2_SCHEMA:
         const { schema } = action;

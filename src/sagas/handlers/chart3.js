@@ -2,7 +2,7 @@ import { call, put } from "redux-saga/effects";
 import { setData, setSchema } from "../../ducks/chart3";
 import { requestGetData, requestGetSchema } from "../requests/chart3";
 
-export const handleGetChart3Data = function* handleGetChart3Data(action) {
+export function* handleGetChart3Data(action) {
   try {
     const response = yield call(requestGetData);
     const { data } = response;
@@ -12,7 +12,7 @@ export const handleGetChart3Data = function* handleGetChart3Data(action) {
   }
 }
 
-export const handleGetChart3Schema = function* handleGetChart3Schema(action) {
+export function* handleGetChart3Schema(action) {
     try {
       const response = yield call(requestGetSchema);
       const { data } = response;
