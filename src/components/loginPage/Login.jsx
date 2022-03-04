@@ -1,20 +1,36 @@
 import React, { useState } from 'react';
+import { login } from "../../features/userSlice"
+import { useDispatch } from 'react-redux';
+import users from '../../data/usersData.json'
+
+const validateUser = (username, password) => {
+    const found = users.users.find(user => user.username === username)
+    if (found) {
+        return true
+    } else {
+        return false
+    }
+}
 
 const LoginPage = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState(false)
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value)
-    }
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value)
-    }
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(username, password)
+
+        if (validateUser(username, password)) {
+            dispatch(login({
+                username: username,
+                password: password,
+                loggedIn: true
+            }))
+        } else {
+            setError(true)
+        }
     }
 
     return (
@@ -24,13 +40,23 @@ const LoginPage = () => {
                     <div >
                         <span>
                             <label htmlFor="username">Username:</label>
-                            <input type="text" id="username" name="username" onChange={handleUsernameChange}></input>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="Username" 
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}></input>
                         </span>
                     </div>
                     <div>
                         <span>
                             <label htmlFor="password">Password:</label>
-                            <input type="text" id="password" name="password" onChange={handlePasswordChange}></input>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}></input>
                         </span>
                     </div>
                     <div>
@@ -40,6 +66,17 @@ const LoginPage = () => {
                         </span>
                     </div>
                 </form>
+            </div>
+            <div>
+                {
+                error 
+                ? 
+                    <div>
+                        <h3>Incorrect login data</h3>
+                    </div>
+                :
+                    null
+                }
             </div>
         </div>
     );
