@@ -10,8 +10,9 @@ const Charts = () => {
             <div className='mt-5 mb-3'>
                 <Chart1 />
             </div>
-            <div className='d-flex justify-content-between mb-4'>
+            <div className='d-flex justify-content-between mb-4' style={{width:'100%'}}>
                 <Chart2 />
+                <div style={{flex:1.5}}></div>
                 <Chart3 />
             </div>
         </div>

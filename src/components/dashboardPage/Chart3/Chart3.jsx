@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import FusionCharts from "fusioncharts";
 import TimeSeries from "fusioncharts/fusioncharts.timeseries";
 import ReactFC from "react-fusioncharts";
-import { Placeholder, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getData, getSchema } from "../../../ducks/chart3";
@@ -37,7 +37,7 @@ class ChartViewer extends React.Component {
       timeseriesDs: {
         type: "timeseries",
         renderAt: "container",
-        width: "47%",
+        width: "100%",
         height: "400",
         dataSource
       }
@@ -87,12 +87,12 @@ const Chart3 = () => {
     const schema = useSelector((state) => state.chart3.schema);
 
     return (
-        <div>
+        <div style={{flex:47}}>
             {data && schema
             ?
                 <ChartViewer data={data} schema={schema}/>
             :
-                <div className='loaderContainer' style={{ width: '47%', height: '400px'}}>
+                <div className='loaderContainer' style={{ height: '400px'}}>
                     <div>
                         Loading data...<br/><br/>
                         <Spinner animation='border'/>
