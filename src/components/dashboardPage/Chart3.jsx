@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getData, getSchema } from "../../ducks/chart3";
 
 import ChartViewer from './ChartViewer'
+import { dataSourceChart3 } from "../../data/dataSourcesForCharts/dataSourceChart3";
 
 const Chart3 = () => {
     const dispatch = useDispatch();
@@ -17,31 +18,11 @@ const Chart3 = () => {
     const data = useSelector((state) => state.chart3.data);
     const schema = useSelector((state) => state.chart3.schema);
 
-    const dataSource = {
-      chart: {},
-      caption: {
-        text: "Sales Analysis"
-      },
-      subcaption: {
-        text: "Grocery & Footwear"
-      },
-      series: "Type",
-      yaxis: [
-        {
-          plot: "Sales Value",
-          title: "Sale Value",
-          format: {
-            prefix: "$"
-          }
-        }
-      ]
-    };
-
     return (
         <div style={{flex:47}}>
             {data && schema
             ?
-                <ChartViewer data={data} schema={schema} dataSource={dataSource}/>
+                <ChartViewer data={data} schema={schema} dataSource={dataSourceChart3}/>
             :
                 <div className='loaderContainer' style={{ height: '400px'}}>
                     <div>
