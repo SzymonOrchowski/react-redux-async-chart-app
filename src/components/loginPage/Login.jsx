@@ -46,7 +46,7 @@ const LoginPage = () => {
                         <Button type='reset' value="Reset" onClick={(e) => {
                             setUsername(''); 
                             setPassword('')}}>
-                                Reset
+                                Clear
                         </Button>
                     </div>
                 </Form>
