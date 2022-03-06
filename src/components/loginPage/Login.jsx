@@ -1,22 +1,10 @@
 import React, { useState } from 'react';
 import { userLogin } from '../../ducks/user';
 import { useDispatch } from 'react-redux';
-import users from '../../data/usersData.json'
 import { Form, Button, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const validateUser = (username, password) => {
-    const found = users.users.find(user => user.username === username)
-    if (found) {
-        if (found.password === password) {
-            return true
-        } else {
-            return false
-        }   
-    } else {
-        return false
-    }
-}
+import { validateUser } from '../../utils/utils';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('')
